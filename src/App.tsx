@@ -81,6 +81,7 @@ const App = () => {
     style={{
       background: "linear-gradient(to right, #4caf50, #ffeb3b, #ff5722)", // Праздничный градиент
       boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.5)", // Лёгкое свечение
+      transform: 'translateY(-10px)'
     }}
   >
     <button className="flex flex-col items-center gap-1">
