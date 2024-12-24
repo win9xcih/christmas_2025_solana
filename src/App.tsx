@@ -88,7 +88,7 @@ const App = () => {
                 <div className="h-[48px] w-[2px] bg-[#fddb6d]"></div>
                 <button className="flex flex-col items-center gap-1">
                   <img src={rocket} width={24} height={24} alt="High Voltage" />
-                  <span>Boosts</span>
+                  <span>twitter(x)</span>
                 </button>
               </div>
             </div>
