@@ -74,24 +74,33 @@ const App = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-grow flex items-center max-w-60 text-sm">
-              <div className="w-full bg-[#fad258] py-4 rounded-2xl flex justify-around">
-                <button className="flex flex-col items-center gap-1">
-                  <img src={bear} width={24} height={24} alt="High Voltage" />
-                  <span>Pumpfun</span>
-                </button>
-                <div className="h-[48px] w-[2px] bg-[#fddb6d]"></div>
-                <button className="flex flex-col items-center gap-1">
-                  <img src={coin} width={24} height={24} alt="High Voltage" />
-                  <span>Telegram</span>
-                </button>
-                <div className="h-[48px] w-[2px] bg-[#fddb6d]"></div>
-                <button className="flex flex-col items-center gap-1">
-                  <img src={rocket} width={24} height={24} alt="High Voltage" />
-                  <span>twitter(x)</span>
-                </button>
-              </div>
-            </div>
+            <div className="text-sm">
+            
+  <div
+    className="w-full py-4 rounded-2xl flex justify-around shadow-xl"
+    style={{
+      background: "linear-gradient(to right, #4caf50, #ffeb3b, #ff5722)", // Праздничный градиент
+      boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.5)", // Лёгкое свечение
+    }}
+  >
+    <button className="flex flex-col items-center gap-1">
+      <img src={bear} width={24} height={24} alt="Pumpfun" />
+      <span className="text-white text-lg font-bold">Pumpfun</span>
+    </button>
+    <div className="h-[48px] w-[2px] bg-[#ffeb3b]"></div>
+    <button className="flex flex-col items-center gap-1">
+      <img src={coin} width={24} height={24} alt="Telegram" />
+      <span className="text-white text-lg font-bold">Telegram</span>
+    </button>
+    <div className="h-[48px] w-[2px] bg-[#ffeb3b]"></div>
+    <button className="flex flex-col items-center gap-1">
+      <img src={rocket} width={24} height={24} alt="Twitter" />
+      <span className="text-white text-lg font-bold">twitter(x)</span>
+    </button>
+  </div>
+</div>
+
+
           </div>
           <div
   className="relative h-6 w-full rounded-full overflow-hidden shadow-lg border-2 border-[#FF0000]"
