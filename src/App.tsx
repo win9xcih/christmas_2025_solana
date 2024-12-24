@@ -93,9 +93,13 @@ const App = () => {
               </div>
             </div>
           </div>
-          <div className="w-full bg-[#f9c035] rounded-full mt-4">
-            <div className="bg-gradient-to-r from-[#f3c45a] to-[#fffad0] h-4 rounded-full" style={{ width: `${(energy / 2025) * 100}%` }}></div>
-          </div>
+          <div
+  className="relative h-6 w-full rounded-full overflow-hidden shadow-lg border-2 border-[#FF0000]"
+  style={{
+    width: `${(energy / 2025) * 100}%`,
+    background: "repeating-linear-gradient(45deg, #FF0000, #FF0000 10px, #FFFFFF 10px, #FFFFFF 20px)", // Полосатый узор
+  }}
+></div>
         </div>
 
 
