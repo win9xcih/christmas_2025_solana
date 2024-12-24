@@ -30,7 +30,7 @@ const App = () => {
   // useEffect hook to restore energy over time
   useEffect(() => {
     const interval = setInterval(() => {
-      setEnergy((prevEnergy) => Math.min(prevEnergy + 1, 6500));
+      setEnergy((prevEnergy) => Math.min(prevEnergy + 1, 2025));
     }, 100); // Restore 10 energy points every second
 
     return () => clearInterval(interval); // Clear interval on component unmount
@@ -68,9 +68,9 @@ const App = () => {
             <div className="w-1/3 flex items-center justify-start max-w-32">
               <div className="flex items-center justify-center">
                 <img src={highVoltage} width={44} height={44} alt="High Voltage" />
-                <div className="ml-2 text-left">
+                <div className=" text-left">
                   <span className="text-white text-2xl font-bold block">{energy}</span>
-                  <span className="text-white text-large opacity-75">/ 6500</span>
+                  <span className="text-white text-large opacity-75">/ 2025</span>
                 </div>
               </div>
             </div>
@@ -94,7 +94,7 @@ const App = () => {
             </div>
           </div>
           <div className="w-full bg-[#f9c035] rounded-full mt-4">
-            <div className="bg-gradient-to-r from-[#f3c45a] to-[#fffad0] h-4 rounded-full" style={{ width: `${(energy / 6500) * 100}%` }}></div>
+            <div className="bg-gradient-to-r from-[#f3c45a] to-[#fffad0] h-4 rounded-full" style={{ width: `${(energy / 2025) * 100}%` }}></div>
           </div>
         </div>
 
