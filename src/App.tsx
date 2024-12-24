@@ -89,10 +89,13 @@ const App = () => {
                   transform: 'translateY(-10px)'
                 }}
               >
-                <button className="flex flex-col items-center gap-1">
-                  <img src={bear} width={24} height={24} alt="Pumpfun" />
-                  <span className="text-white text-base font-bold">Pumpfun</span>
-                </button>
+                <button
+  className="flex flex-col items-center gap-1"
+  onClick={() => window.open('https://pump.fun/board', '_blank')}
+>
+  <img src={bear} width={24} height={24} alt="Pumpfun" />
+  <span className="text-white text-base font-bold">Pumpfun</span>
+</button>
                 <div className="h-[48px] w-[2px] bg-[#ffeb3b]"></div>
                 <button className="flex flex-col items-center gap-1">
                   <img src={coin} width={24} height={24} alt="Telegram" />
