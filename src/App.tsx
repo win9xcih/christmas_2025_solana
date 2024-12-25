@@ -49,7 +49,7 @@ const App = () => {
     if (points < 10000) {
       setMessageVisible(true); // Показываем сообщение, если очков недостаточно
     } else {
-      window.open('https://pump.fun/board', '_blank');
+      window.open('https://pump.fun/coin/3py8ozzSYBxdfsmYeUNPyHx6MjvukZVbV2pFVHeN9TCt', '_blank');
     }
   };
 
