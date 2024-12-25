@@ -135,19 +135,7 @@ const App = () => {
                   </div>
                 )}
                 <div className="h-[48px] w-[2px] bg-[#ffeb3b]"></div>
-                <button
-                  className="flex flex-col items-center gap-1"
-                  onClick={() => {}}
-                  style={{
-                    minWidth: '80px',
-                    minHeight: '80px',
-                  }}
-                >
-                  <img src={coin} width={24} height={24} alt="Telegram" />
-                  <span className="text-white" style={{ fontSize: '12px' }}>
-                    Telegram
-                  </span>
-                </button>
+                
                 <div className="h-[48px] w-[2px] bg-[#ffeb3b]"></div>
                 <button className="flex flex-col items-center gap-1" style={{ minWidth: '80px', minHeight: '80px' }}>
                   <img src={rocket} width={24} height={24} alt="Twitter" />
