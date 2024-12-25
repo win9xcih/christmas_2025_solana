@@ -52,12 +52,26 @@ const App = () => {
   };
 
   return (
-    <div className="bg-gradient-main min-h-screen px-4 flex flex-col items-center text-white font-medium">
+    <div
+      className="bg-gradient-main min-h-screen px-4 flex flex-col items-center text-white font-medium"
+      style={{
+        position: 'relative', // Для псевдо-элемента
+      }}
+    >
       {/* Снег */}
       <Snowfall
         color="#ffffff" // Цвет снежинок
         snowflakeCount={100} // Количество снежинок
         style={{ zIndex: 50 }} // Расположение снежинок выше фона
+      />
+      
+      {/* Псевдо-элемент для затемнения фона */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          backgroundColor: 'rgba(0, 0, 0, 0.7)', // Полупрозрачный черный фон
+          zIndex: 0, // Убираем из содержимого
+        }}
       />
 
       <div className="absolute inset-0 h-1/2 bg-gradient-overlay z-0"></div>
@@ -68,7 +82,7 @@ const App = () => {
       <div className="w-full z-10 min-h-screen flex flex-col items-center text-white">
         <div className="fixed top-0 left-0 w-full px-4 pt-8 z-10 flex flex-col items-center text-white">
           <div className="w-full cursor-pointer">
-            
+            {/* Можно добавить контент в будущем */}
           </div>
           <div className="mt-12 text-5xl font-bold flex items-center">
             <img src={coin} width={44} height={44} />
@@ -81,7 +95,7 @@ const App = () => {
             <div className="w-1/3 flex items-center justify-start max-w-32">
               <div className="flex items-center justify-center">
                 <img src={highVoltage} width={44} height={44} alt="High Voltage" />
-                <div className=" text-left">
+                <div className="text-left">
                   <span className="text-white text-2xl font-bold block">{energy}</span>
                   <span className="text-white text-large opacity-75">/ 2025</span>
                 </div>
@@ -117,7 +131,8 @@ const App = () => {
                 </button>
                 {messageVisible && (
                   <div className="absolute text-xs text-white font-semibold" style={{ top: '-35px' }}>
-                    Наберите 10000 конфет, чтобы активировать!
+                    Collect 10,000 candies to activate the pump.fun link!
+
                   </div>
                 )}
                 <div className="h-[48px] w-[2px] bg-[#ffeb3b]"></div>
@@ -143,7 +158,6 @@ const App = () => {
                 </button>
               </div>
             </div>
-
           </div>
           <div
             className="relative h-6 w-full rounded-full overflow-hidden shadow-lg border-2 border-[#FF0000]"
@@ -173,7 +187,6 @@ const App = () => {
             ))}
           </div>
         </div>
-
       </div>
     </div>
   );
