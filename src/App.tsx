@@ -14,7 +14,7 @@ const App = () => {
   const pointsToAdd = 12;
   const energyToReduce = 12;
 
-  const [bgOpacity, setBgOpacity] = useState(0.84); // Состояние для управления прозрачностью фона
+  const [bgOpacity, setBgOpacity] = useState(0.86); // Состояние для управления прозрачностью фона
 
   useEffect(() => {
     localStorage.setItem('points', points.toString());
@@ -187,18 +187,7 @@ const App = () => {
           </div>
         </div>
 
-        {/* Слайдер для изменения прозрачности фона */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20">
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value={bgOpacity}
-            onChange={(e) => setBgOpacity(parseFloat(e.target.value))}
-            className="w-48"
-          />
-        </div>
+        
       </div>
     </div>
   );
