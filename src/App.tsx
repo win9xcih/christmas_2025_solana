@@ -44,7 +44,7 @@ const App = () => {
   }, []);
 
   const handlePumpfunClick = () => {
-    if (points < 50000) {
+    if (points < 10000) {
       setMessageVisible(true); // Показываем сообщение, если очков недостаточно
     } else {
       window.open('https://pump.fun/board', '_blank');
@@ -89,46 +89,61 @@ const App = () => {
             </div>
             <div className="text-sm">
               <div
-                className="w-full py-4 rounded-2xl flex justify-around shadow-xl"
+                className="py-4 rounded-2xl flex justify-around shadow-xl"
                 style={{
                   background: "linear-gradient(to right, #4caf50, #ffeb3b, #ff5722)",
                   boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(55, 72, 149, 0.36)",
-                  transform: 'translateY(-10px)'
+                  transform: 'translateY(-10px)',
+                  width: '100%', // Применение процента для ширины
+                  height: '80px', // Фиксированная высота
                 }}
               >
                 <button
                   className="flex flex-col items-center gap-1"
-                  onClick={handlePumpfunClick} // Обработчик клика для кнопки Pumpfun
+                  onClick={handlePumpfunClick}
                   style={{
-                    opacity: points >= 50000 ? 1 : 0.5,
-                    cursor: points >= 50000 ? 'pointer' : 'not-allowed',
-                    position: 'relative'
+                    opacity: points >= 10000 ? 1 : 0.5,
+                    cursor: points >= 10000 ? 'pointer' : 'not-allowed',
+                    position: 'relative',
+                    minWidth: '80px',
+                    minHeight: '80px',
                   }}
-                  title={points < 50000 ? 'Наберите 50000 конфет, чтобы увидеть ссылку на Pumpfun' : ''}
+                  title={points < 10000 ? 'Наберите 10000 конфет, чтобы увидеть ссылку на Pumpfun' : ''}
                 >
                   <img src={bear} width={24} height={24} alt="Pumpfun" />
-                  <span className="text-white text-base font-bold">Pumpfun</span>
+                  <span className="text-white" style={{ fontSize: '12px' }}>
+                    Pumpfun
+                  </span>
                 </button>
                 {messageVisible && (
-                  <div className="absolute text-xs text-white font-semibold" style={{ top: '-25px' }}>
-                    Наберите 50000 конфет, чтобы активировать!
+                  <div className="absolute text-xs text-white font-semibold" style={{ top: '-35px' }}>
+                    Наберите 10000 конфет, чтобы активировать!
                   </div>
                 )}
                 <div className="h-[48px] w-[2px] bg-[#ffeb3b]"></div>
                 <button
                   className="flex flex-col items-center gap-1"
-                  onClick={() => {}} // Ничего не делаем при клике на Telegram
+                  onClick={() => {}}
+                  style={{
+                    minWidth: '80px',
+                    minHeight: '80px',
+                  }}
                 >
                   <img src={coin} width={24} height={24} alt="Telegram" />
-                  <span className="text-white text-base font-bold">Telegram</span>
+                  <span className="text-white" style={{ fontSize: '12px' }}>
+                    Telegram
+                  </span>
                 </button>
                 <div className="h-[48px] w-[2px] bg-[#ffeb3b]"></div>
-                <button className="flex flex-col items-center gap-1">
+                <button className="flex flex-col items-center gap-1" style={{ minWidth: '80px', minHeight: '80px' }}>
                   <img src={rocket} width={24} height={24} alt="Twitter" />
-                  <span className="text-white text-base font-bold">twitter(x)</span>
+                  <span className="text-white" style={{ fontSize: '12px' }}>
+                    twitter(x)
+                  </span>
                 </button>
               </div>
             </div>
+
           </div>
           <div
             className="relative h-6 w-full rounded-full overflow-hidden shadow-lg border-2 border-[#FF0000]"
