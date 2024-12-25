@@ -1,7 +1,8 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import './index.css';
 import Arrow from './icons/Arrow';
 import { bear, coin, highVoltage, notcoin, rocket, trophy } from './images';
+import Snowfall from 'react-snowfall'; // Импортируем библиотеку
 
 const App = () => {
   const [points, setPoints] = useState<number>(() => {
@@ -42,27 +43,14 @@ const App = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Генерация снежинок только один раз
-  const snowflakes = useMemo(() => {
-    return Array.from({ length: 50 }).map((_, index) => (
-      <div
-        key={index}
-        className="snowflake"
-        style={{
-          left: `${Math.random() * 100}vw`,
-          animationDelay: `${Math.random() * 5}s`,
-          animationDuration: `${5 + Math.random() * 5}s`,
-        }}
-      >
-        ❄️
-      </div>
-    ));
-  }, []);
-
   return (
-    <div className="bg-gradient-main min-h-screen px-4 flex flex-col items-center text-white font-medium relative">
-      {/* Снежинки */}
-      <div className="snowflakes">{snowflakes}</div>
+    <div className="bg-gradient-main min-h-screen px-4 flex flex-col items-center text-white font-medium">
+      {/* Снег */}
+      <Snowfall
+        color="#ffffff" // Цвет снежинок
+        snowflakeCount={100} // Количество снежинок
+        style={{ zIndex: 50 }} // Расположение снежинок выше фона
+      />
 
       <div className="absolute inset-0 h-1/2 bg-gradient-overlay z-0"></div>
       <div className="absolute inset-0 flex items-center justify-center z-0">
@@ -85,6 +73,7 @@ const App = () => {
             <span className="ml-1">Gold <Arrow size={18} className="ml-0 mb-1 inline-block" /></span>
           </div>
         </div>
+
         <div className="fixed bottom-0 left-0 w-full px-4 pb-4 z-10">
           <div className="w-full flex justify-between gap-2">
             <div className="w-1/3 flex items-center justify-start max-w-32">
@@ -96,8 +85,44 @@ const App = () => {
                 </div>
               </div>
             </div>
+            <div className="text-sm">
+              <div
+                className="w-full py-4 rounded-2xl flex justify-around shadow-xl"
+                style={{
+                  background: "linear-gradient(to right, #4caf50, #ffeb3b, #ff5722)",
+                  boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(55, 72, 149, 0.36)",
+                  transform: 'translateY(-10px)'
+                }}
+              >
+                <button
+                  className="flex flex-col items-center gap-1"
+                  onClick={() => window.open('https://pump.fun/board', '_blank')}
+                >
+                  <img src={bear} width={24} height={24} alt="Pumpfun" />
+                  <span className="text-white text-base font-bold">Pumpfun</span>
+                </button>
+                <div className="h-[48px] w-[2px] bg-[#ffeb3b]"></div>
+                <button className="flex flex-col items-center gap-1">
+                  <img src={coin} width={24} height={24} alt="Telegram" />
+                  <span className="text-white text-base font-bold">Telegram</span>
+                </button>
+                <div className="h-[48px] w-[2px] bg-[#ffeb3b]"></div>
+                <button className="flex flex-col items-center gap-1">
+                  <img src={rocket} width={24} height={24} alt="Twitter" />
+                  <span className="text-white text-base font-bold">twitter(x)</span>
+                </button>
+              </div>
+            </div>
           </div>
+          <div
+            className="relative h-6 w-full rounded-full overflow-hidden shadow-lg border-2 border-[#FF0000]"
+            style={{
+              width: `${(energy / 2025) * 100}%`,
+              background: "repeating-linear-gradient(45deg, #FF0000, #FF0000 10px, #FFFFFF 10px, #FFFFFF 20px)"
+            }}
+          ></div>
         </div>
+
         <div className="flex-grow flex items-center justify-center">
           <div className="relative mt-4" onClick={handleClick}>
             <img src={notcoin} width={256} height={256} alt="notcoin" />
@@ -108,7 +133,7 @@ const App = () => {
                 style={{
                   top: `${click.y - 42}px`,
                   left: `${click.x - 28}px`,
-                  animation: `float 1s ease-out`,
+                  animation: `float 1s ease-out`
                 }}
                 onAnimationEnd={() => handleAnimationEnd(click.id)}
               >
@@ -117,6 +142,7 @@ const App = () => {
             ))}
           </div>
         </div>
+
       </div>
     </div>
   );
