@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import './index.css';
-import Arrow from './icons/Arrow';
-import { bear, coin, highVoltage, notcoin, rocket, trophy } from './images';
+import { bear, coin, highVoltage, notcoin, rocket } from './images';
 import Snowfall from 'react-snowfall'; // Импортируем библиотеку
 
 const App = () => {
