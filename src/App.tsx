@@ -14,6 +14,7 @@ const App = () => {
   const pointsToAdd = 12;
   const energyToReduce = 12;
 
+  const [bgOpacity, setBgOpacity] = useState(0.86);
 
   useEffect(() => {
     localStorage.setItem('points', points.toString());
