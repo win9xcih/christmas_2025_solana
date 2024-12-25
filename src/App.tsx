@@ -43,9 +43,11 @@ const App = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleButtonClick = () => {
+  const handlePumpfunClick = () => {
     if (points < 50000) {
-      setMessageVisible(true); // Показываем сообщение, если не хватает очков
+      setMessageVisible(true); // Показываем сообщение, если очков недостаточно
+    } else {
+      window.open('https://pump.fun/board', '_blank');
     }
   };
 
@@ -72,7 +74,6 @@ const App = () => {
             <img src={coin} width={44} height={44} />
             <span className="ml-2">{points.toLocaleString()}</span>
           </div>
-          
         </div>
 
         <div className="fixed bottom-0 left-0 w-full px-4 pb-4 z-10">
@@ -97,22 +98,26 @@ const App = () => {
               >
                 <button
                   className="flex flex-col items-center gap-1"
-                  onClick={() => points >= 50000 && window.open('https://pump.fun/board', '_blank')}
-                  disabled={points < 50000}
+                  onClick={handlePumpfunClick} // Обработчик клика для кнопки Pumpfun
                   style={{
                     opacity: points >= 50000 ? 1 : 0.5,
                     cursor: points >= 50000 ? 'pointer' : 'not-allowed',
                     position: 'relative'
                   }}
-                  title={points < 50000 ? 'Наберите 5000 конфет, чтобы увидеть ссылку на Pumpfun' : ''}
+                  title={points < 50000 ? 'Наберите 50000 конфет, чтобы увидеть ссылку на Pumpfun' : ''}
                 >
                   <img src={bear} width={24} height={24} alt="Pumpfun" />
                   <span className="text-white text-base font-bold">Pumpfun</span>
                 </button>
+                {messageVisible && (
+                  <div className="absolute text-xs text-white font-semibold" style={{ top: '-25px' }}>
+                    Наберите 50000 конфет, чтобы активировать!
+                  </div>
+                )}
                 <div className="h-[48px] w-[2px] bg-[#ffeb3b]"></div>
                 <button
                   className="flex flex-col items-center gap-1"
-                  onClick={handleButtonClick} // Обработчик клика для кнопки
+                  onClick={() => {}} // Ничего не делаем при клике на Telegram
                 >
                   <img src={coin} width={24} height={24} alt="Telegram" />
                   <span className="text-white text-base font-bold">Telegram</span>
@@ -133,12 +138,6 @@ const App = () => {
             }}
           ></div>
         </div>
-
-        {messageVisible && (
-          <div className="absolute top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex items-center justify-center text-white font-bold text-2xl">
-            Наберите 50000 конфет, чтобы активировать!
-          </div>
-        )}
 
         <div className="flex-grow flex items-center justify-center">
           <div className="relative mt-4" onClick={handleClick}>
