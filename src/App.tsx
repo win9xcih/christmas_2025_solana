@@ -11,6 +11,7 @@ const App = () => {
   });
   const [energy, setEnergy] = useState<number>(2025);
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
+  const [messageVisible, setMessageVisible] = useState(false); // Новое состояние для видимости сообщения
   const pointsToAdd = 12;
   const energyToReduce = 12;
 
@@ -43,6 +44,12 @@ const App = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleButtonClick = () => {
+    if (points < 50000) {
+      setMessageVisible(true); // Показываем сообщение, если не хватает очков
+    }
+  };
+
   return (
     <div className="bg-gradient-main min-h-screen px-4 flex flex-col items-center text-white font-medium">
       {/* Снег */}
@@ -60,18 +67,13 @@ const App = () => {
       <div className="w-full z-10 min-h-screen flex flex-col items-center text-white">
         <div className="fixed top-0 left-0 w-full px-4 pt-8 z-10 flex flex-col items-center text-white">
           <div className="w-full cursor-pointer">
-            <div className="bg-[#1f1f1f] text-center py-2 rounded-xl">
-              <p className="text-lg">Join squad <Arrow size={18} className="ml-0 mb-1 inline-block" /></p>
-            </div>
+            
           </div>
           <div className="mt-12 text-5xl font-bold flex items-center">
             <img src={coin} width={44} height={44} />
             <span className="ml-2">{points.toLocaleString()}</span>
           </div>
-          <div className="text-base mt-2 flex items-center">
-            <img src={trophy} width={24} height={24} />
-            <span className="ml-1">Gold <Arrow size={18} className="ml-0 mb-1 inline-block" /></span>
-          </div>
+          
         </div>
 
         <div className="fixed bottom-0 left-0 w-full px-4 pb-4 z-10">
@@ -109,7 +111,10 @@ const App = () => {
                   <span className="text-white text-base font-bold">Pumpfun</span>
                 </button>
                 <div className="h-[48px] w-[2px] bg-[#ffeb3b]"></div>
-                <button className="flex flex-col items-center gap-1">
+                <button
+                  className="flex flex-col items-center gap-1"
+                  onClick={handleButtonClick} // Обработчик клика для кнопки
+                >
                   <img src={coin} width={24} height={24} alt="Telegram" />
                   <span className="text-white text-base font-bold">Telegram</span>
                 </button>
@@ -129,6 +134,12 @@ const App = () => {
             }}
           ></div>
         </div>
+
+        {messageVisible && (
+          <div className="absolute top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex items-center justify-center text-white font-bold text-2xl">
+            Наберите 50000 конфет, чтобы активировать!
+          </div>
+        )}
 
         <div className="flex-grow flex items-center justify-center">
           <div className="relative mt-4" onClick={handleClick}>
