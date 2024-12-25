@@ -96,14 +96,14 @@ const App = () => {
               >
                 <button
                   className="flex flex-col items-center gap-1"
-                  onClick={() => points >= 5000 && window.open('https://pump.fun/board', '_blank')}
-                  disabled={points < 5000}
+                  onClick={() => points >= 50000 && window.open('https://pump.fun/board', '_blank')}
+                  disabled={points < 50000}
                   style={{
-                    opacity: points >= 5000 ? 1 : 0.5,
-                    cursor: points >= 5000 ? 'pointer' : 'not-allowed',
+                    opacity: points >= 50000 ? 1 : 0.5,
+                    cursor: points >= 50000 ? 'pointer' : 'not-allowed',
                     position: 'relative'
                   }}
-                  title={points < 5000 ? 'Наберите 5000 конфет, чтобы увидеть ссылку на Pumpfun' : ''}
+                  title={points < 50000 ? 'Наберите 5000 конфет, чтобы увидеть ссылку на Pumpfun' : ''}
                 >
                   <img src={bear} width={24} height={24} alt="Pumpfun" />
                   <span className="text-white text-base font-bold">Pumpfun</span>
