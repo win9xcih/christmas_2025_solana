@@ -14,7 +14,6 @@ const App = () => {
   const pointsToAdd = 12;
   const energyToReduce = 12;
 
-  const [bgOpacity, setBgOpacity] = useState(0.86); // Состояние для управления прозрачностью фона
 
   useEffect(() => {
     localStorage.setItem('points', points.toString());
