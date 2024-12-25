@@ -122,7 +122,7 @@ const App = () => {
                     minWidth: '80px',
                     minHeight: '80px',
                   }}
-                  title={points < 10000 ? 'Наберите 10000 конфет, чтобы увидеть ссылку на Pumpfun' : ''}
+                  title={points < 10000 ? 'Collect 10,000 candies to see the link to Pumpfun' : ''}
                 >
                   <img src={bear} width={24} height={24} alt="Pumpfun" />
                   <span className="text-white" style={{ fontSize: '12px' }}>
@@ -137,12 +137,17 @@ const App = () => {
                 <div className="h-[48px] w-[2px] bg-[#ffeb3b]"></div>
                 
                 <div className="h-[48px] w-[2px] bg-[#ffeb3b]"></div>
-                <button className="flex flex-col items-center gap-1" style={{ minWidth: '80px', minHeight: '80px' }}>
-                  <img src={rocket} width={24} height={24} alt="Twitter" />
-                  <span className="text-white" style={{ fontSize: '12px' }}>
-                    twitter(x)
-                  </span>
-                </button>
+                <button
+  className="flex flex-col items-center gap-1"
+  style={{ minWidth: '80px', minHeight: '80px' }}
+  onClick={() => window.open('https://x.com/NewYearCash', '_blank')} // Открываем ссылку при клике
+>
+  <img src={rocket} width={24} height={24} alt="Twitter" />
+  <span className="text-white" style={{ fontSize: '12px' }}>
+    twitter(x)
+  </span>
+</button>
+
               </div>
             </div>
           </div>
