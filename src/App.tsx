@@ -14,6 +14,8 @@ const App = () => {
   const pointsToAdd = 12;
   const energyToReduce = 12;
 
+  const [bgOpacity, setBgOpacity] = useState(0.87); // Состояние для управления прозрачностью фона
+
   useEffect(() => {
     localStorage.setItem('points', points.toString());
   }, [points]);
@@ -56,6 +58,9 @@ const App = () => {
       className="bg-gradient-main min-h-screen px-4 flex flex-col items-center text-white font-medium"
       style={{
         position: 'relative', // Для псевдо-элемента
+        backgroundImage: 'url(/images/background.png)', // Замените на путь к вашей картинке
+        backgroundSize: 'cover', // Покрыть весь экран
+        backgroundPosition: 'center', // Центрировать изображение
       }}
     >
       {/* Снег */}
@@ -69,16 +74,11 @@ const App = () => {
       <div 
         className="absolute inset-0"
         style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.7)', // Полупрозрачный черный фон
+          backgroundColor: `rgba(0, 0, 0, ${bgOpacity})`, // Полупрозрачный черный фон с динамической прозрачностью
           zIndex: 0, // Убираем из содержимого
         }}
       />
-
-      <div className="absolute inset-0 h-1/2 bg-gradient-overlay z-0"></div>
-      <div className="absolute inset-0 flex items-center justify-center z-0">
-        <div className="radial-gradient-overlay"></div>
-      </div>
-
+      
       <div className="w-full z-10 min-h-screen flex flex-col items-center text-white">
         <div className="fixed top-0 left-0 w-full px-4 pt-8 z-10 flex flex-col items-center text-white">
           <div className="w-full cursor-pointer">
@@ -132,7 +132,6 @@ const App = () => {
                 {messageVisible && (
                   <div className="absolute text-xs text-white font-semibold" style={{ top: '-35px' }}>
                     Collect 10,000 candies to activate the pump.fun link!
-
                   </div>
                 )}
                 <div className="h-[48px] w-[2px] bg-[#ffeb3b]"></div>
@@ -165,7 +164,7 @@ const App = () => {
               width: `${(energy / 2025) * 100}%`,
               background: "repeating-linear-gradient(45deg, #FF0000, #FF0000 10px, #FFFFFF 10px, #FFFFFF 20px)"
             }}
-          ></div>
+          />
         </div>
 
         <div className="flex-grow flex items-center justify-center">
