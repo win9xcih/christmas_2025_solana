@@ -49,7 +49,7 @@ const App = () => {
     if (points < 10000) {
       setMessageVisible(true); // Показываем сообщение, если очков недостаточно
     } else {
-      window.open('https://pump.fun/coin/3py8ozzSYBxdfsmYeUNPyHx6MjvukZVbV2pFVHeN9TCt', '_blank');
+      window.open('', '_blank');
     }
   };
 
@@ -140,7 +140,7 @@ const App = () => {
                 <button
   className="flex flex-col items-center gap-1"
   style={{ minWidth: '80px', minHeight: '80px' }}
-  onClick={() => window.open('https://x.com/NewYearCash', '_blank')} // Открываем ссылку при клике
+  onClick={() => window.open('', '_blank')} // Открываем ссылку при клике
 >
   <img src={rocket} width={24} height={24} alt="Twitter" />
   <span className="text-white" style={{ fontSize: '12px' }}>
